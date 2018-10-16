@@ -6,4 +6,6 @@ module.exports = {
 
     , constants: require(`./constants/index`)
 
+    , replies: require(`./replies/index`)
+
 }

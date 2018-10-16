@@ -15,10 +15,6 @@ let schema = new mongoose.Schema({
                 type: String,
                 required: true
             },
-            idade: {
-                type: Number,
-                required: true
-            },
             birthdate: {
                 type: Date,
                 required: true
@@ -43,5 +39,5 @@ let schema = new mongoose.Schema({
 
 module.exports = {
     entity: schema,
-    model: mongoose.model('enterprise', schema)
+    model: mongoose.model('company', schema)
 }

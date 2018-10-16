@@ -20,18 +20,13 @@ const _authenticators = ({ API }) => ({ hapiJwt, jwt, middlewares, services }) =
 const _upWithoutSSL = ({ ENVIRONMENT, API, PORT }) => async (dependencies) => {
 
     const { hapi, inert, vision, hapiJwt, hapiSwagger, services, schemas } = dependencies
-        , _api = new hapi.Server()
+        , _api = new hapi.Server({ port: PORT.HTTP, host: 'localhost' })
 
     // console.log(_api)
 
-    await _api.connection({ port: PORT.HTTP, host: 'localhost' })
+    // await _api.connection({ port: PORT.HTTP, host: 'localhost' })
 
     // services.loggers.create(0, `SERVER`, { status: `success`, at: services.calendar.milliseconds({ moment })(services.calendar.timezone.SP), description: `server started` })
-
-    console.log(`Inert => `, inert)
-    console.log(`vision => `, vision)
-    console.log(`hapiJwt => `, hapiJwt)
-    console.log(`hapiSwagger => `, hapiSwagger)
 
     await _api.register([
         inert,

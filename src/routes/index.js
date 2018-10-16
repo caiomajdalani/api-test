@@ -4,8 +4,17 @@ const path = require('path')
 
 const _paths = [
     `./user`,
-    `./enterprise`
+    `./companies`
 ]
 
-module.exports = (dependencies) => _paths.map(path => require(path)(dependencies)).map(endpoint => endpoint[0])
+module.exports = (dependencies) => {
+
+    const routes = []
+
+    const path = _paths.map(path => {
+        routes.push(...require(path)(dependencies))
+    })
+
+    return routes
+}
 

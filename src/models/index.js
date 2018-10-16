@@ -1,6 +1,6 @@
 'use strict'
 
 module.exports = {
-    enterprise: require('./enterprise'),
+    company: require('./company'),
     user: require('./user')
 }
