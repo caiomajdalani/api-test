@@ -1,5 +1,5 @@
 'use strict'
 
 module.exports = {
-    hapiJwt: require('./hapijwt/index')
+    hapiJwt: require('./hapiJwt/index')
 }

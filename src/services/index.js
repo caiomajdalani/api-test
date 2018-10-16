@@ -8,4 +8,6 @@ module.exports = {
 
     , replies: require(`./replies/index`)
 
+    , calendar: require(`./calendar/index`)
+
 }
