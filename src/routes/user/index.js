@@ -7,6 +7,7 @@ module.exports = ({ services, schemas, controllers, hapiJwt, moment, joi }) => {
             method: 'POST',
             path: '/login',
             config: {
+                auth: false,
                 tags: ['api'],
                 description: 'Login',
                 validate: {
@@ -22,19 +23,17 @@ module.exports = ({ services, schemas, controllers, hapiJwt, moment, joi }) => {
             method: 'POST',
             path: '/users',
             config: {
+                auth: false,
                 tags: ['api'],
                 description: 'Create a user',
                 validate: {
-                    headers: joi.object({
-                        authorization: joi.string().required()
-                    }).unknown(),
                     payload: {
                         email: joi.string().email(),
                         password: joi.string().required(),
                     }
                 }
             },
-            handler: (request, reply) => { return reply('aaaa') }
+            handler: controllers.user.create({ services, schemas, moment })
         }
     ]
 };

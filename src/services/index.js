@@ -10,4 +10,6 @@ module.exports = {
 
     , calendar: require(`./calendar/index`)
 
+    , cryptography: require('./utils/cryptography')
+
 }

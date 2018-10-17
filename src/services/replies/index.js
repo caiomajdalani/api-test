@@ -14,50 +14,49 @@ const CODES = {
 
 module.exports = {
 
-    ok: response => (data) => response.status(CODES.ok).json({
+    ok: resObj => (data) => resObj.response({
         status: CODES.ok,
         message: `OK`,
         result: data
-    }),
-    created: response => (data) => response.status(CODES.created).json({
+    }).code(CODES.ok),
+    created: resObj => (data) => resObj.response({
         status: CODES.created,
         message: `CREATED`,
         result: data
-    }),
-    accepted: response => (data) => response.status(CODES.accepted).json({
+    }).code(CODES.created),
+    accepted: resObj => (data) => resObj.response({
         status: CODES.accepted,
         message: `ACCEPTED`,
         result: data
-    }),
-    badRequest: response => (data) => response.status(CODES.badRequest).json({
+    }).code(CODES.accepted),
+    badRequest: resObj => (data) => resObj.response({
         status: CODES.badRequest,
         message: `BADREQUEST`,
         result: data
-    }),
-    unauthorized: response => (data) => response.status(CODES.unauthorized).json({
+    }).code(CODES.badRequest),
+    unauthorized: resObj => (data) => resObj.response({
         status: CODES.unauthorized,
         message: `UNAUTHORIZED`,
         result: data
-    }),
-    notFound: response => (data) => response.status(CODES.notFound).json({
+    }).code(CODES.unauthorized),
+    notFound: resObj => (data) => resObj.response({
         status: CODES.notFound,
         message: `NOTFOUND`,
         result: data
-    }),
-    conflict: response => (data) => response.status(CODES.conflict).json({
+    }).code(CODES.notFound),
+    conflict: resObj => (data) => resObj.response({
         status: CODES.conflict,
         message: `CONFLICT`,
         result: data
-    }),
-    unprocessableEntity: response => (data) => response.status(CODES.unprocessableEntity).json({
+    }).code(CODES.conflict),
+    unprocessableEntity: resObj => (data) => resObj.response({
         status: CODES.unprocessableEntity,
         message: `UNPROCESSABLE`,
         result: data
-    }),
-    internalServerError: response => (data) => response.status(CODES.internalServerError).json({
+    }).code(CODES.unprocessableEntity),
+    internalServerError: resObj => (data) => resObj.response({
         status: CODES.internalServerError,
         message: `ERROR`,
         result: data
-    })
-
+    }).code(CODES.internalServerError)
 }
