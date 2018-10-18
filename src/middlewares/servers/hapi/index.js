@@ -1,6 +1,6 @@
 'use strict'
 
-const _authenticators = ({ API }) => ({ hapiJwt, jwt, middlewares, services, _api }) => middlewares.authenticators.hapiJwt({ API })({ hapiJwt, jwt, services, _api })
+const _authenticators = ({ API }) => ({ hapiJwt, jwt, middlewares, services, schemas, _api }) => middlewares.authenticators.hapiJwt({ API })({ hapiJwt, jwt, services, schemas, _api })
 
 const _upWithoutSSL = ({ ENVIRONMENT, API, PORT }) => async (dependencies) => {
 

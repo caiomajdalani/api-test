@@ -2,5 +2,5 @@
 
 module.exports = {
     user: require('./user/index'),
-    enterprise: require('./enterprise/index')
+    company: require('./company/index')
 }

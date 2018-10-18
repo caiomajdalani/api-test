@@ -17,7 +17,7 @@ module.exports = ({ services, schemas, controllers, hapiJwt, moment, joi }) => {
                     }
                 }
             },
-            handler: (request, reply) => { return reply('aaaa') }
+            handler: controllers.user.login({ services, schemas, moment })
         },
         {
             method: 'POST',

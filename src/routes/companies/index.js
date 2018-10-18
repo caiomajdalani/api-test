@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = ({ services, schemas, controllers, hapiJwt, moment, joi }) => {
+module.exports = ({ services, schemas, controllers, hapiJwt, jwt, moment, joi }) => {
 
     return [
         {
@@ -9,19 +9,17 @@ module.exports = ({ services, schemas, controllers, hapiJwt, moment, joi }) => {
             config: {
                 tags: ['api'],
                 description: 'Search companies',
-                notes: 'Page and PageSize must be informed',
                 validate: {
                     headers: joi.object({
                         authorization: joi.string().required()
                     }).unknown(),
                     query: {
                         name: joi.string().max(100),
-                        pageSize: joi.number().required().max(100),
-                        page: joi.number().required()
+                        cnpj: joi.string()
                     }
                 }
             },
-            handler: (request, reply) => { return reply('aaaa') }
+            handler: controllers.company.findAll({ services, schemas, moment })
         },
         {
             method: 'GET',
