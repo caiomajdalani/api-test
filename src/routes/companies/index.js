@@ -37,7 +37,7 @@ module.exports = ({ services, schemas, controllers, hapiJwt, jwt, moment, joi })
                     }
                 }
             },
-            handler: (request, reply) => { return reply('aaaa') }
+            handler: controllers.company.findOne({ services, schemas, moment })
         },
         {
             method: 'GET',
@@ -66,18 +66,17 @@ module.exports = ({ services, schemas, controllers, hapiJwt, jwt, moment, joi })
             config: {
                 tags: ['api'],
                 description: 'Create a Company',
-                notes: 'Must inform CompanyId as a mongodb ObjectId',
                 validate: {
                     headers: joi.object({
                         authorization: joi.string().required()
                     }).unknown(),
                     payload: {
-                        name: joi.string().required().min(5).max(50),
+                        name: joi.string().required().max(50),
                         cnpj: joi.string().length(14).required(),
                         employees: joi.array().items(
                             joi.object({
-                                name: joi.string().required().min(5).max(50),
-                                birthdate: joi.date().required(),
+                                name: joi.string().required().max(50),
+                                birthdate: joi.date().iso().required(),
                                 job: joi.string().valid(`DIRECTOR`, `DEVELOPER`, `ANALYST`).required(),
                                 email: joi.string().email().required()
                             })
@@ -85,7 +84,7 @@ module.exports = ({ services, schemas, controllers, hapiJwt, jwt, moment, joi })
                     }
                 }
             },
-            handler: (request, reply) => { return reply('aaaa') }
+            handler: controllers.company.create({ services, schemas, moment })
         },
         {
             method: 'PUT',
