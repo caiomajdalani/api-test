@@ -20,3 +20,4 @@ coverage
 # Trash
 .vscode
 .DS_Store
+test.js
