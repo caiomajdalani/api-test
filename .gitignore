@@ -2,6 +2,7 @@
 logs
 *.log
 npm-debug.log*
+mochawesome-report
 
 # Dependency directories
 node_modules
