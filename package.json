@@ -26,7 +26,7 @@
     "https": "^1.0.0",
     "inert": "^5.1.0",
     "joi": "^13.7.0",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "md5": "^2.2.1",
     "mocha": "^5.2.0",
     "mochawesome": "^4.1.0",
